@@ -1,0 +1,22 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &__container {
+    font-size: 10rem;
+    @include font-styling(800, $Black)
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 2rem;
+  }
+}
