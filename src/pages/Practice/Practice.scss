@@ -1,3 +1,11 @@
 @use '../../styles/partials/global';
 @import '../../styles/partials/variables';
 @import '../../styles/partials/mixins';
+
+.practice {
+    height: 100%;
+
+    &__timer {
+        height: 100%;
+    }
+}
