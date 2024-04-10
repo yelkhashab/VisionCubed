@@ -10,7 +10,7 @@ body {
     width: 100vw;
     background-color: $Light-Grey;
 
-    @include font-styling(400, $Black);
+    @include font-styling(300, $Black);
 
     a {
         text-decoration: none;
@@ -35,14 +35,14 @@ body {
     li {
         list-style-type: none;
 
-        @include format-text(1.25rem, 1rem, 400);
+        @include format-text(1.25rem, 1rem, 300);
 
         @include tablet {
-            @include format-text(1.25rem, 1rem, 400);
+            @include format-text(1.25rem, 1rem, 300);
         }
 
         @include desktop {
-            @include format-text(1.25rem, 1rem, 400);
+            @include format-text(1.25rem, 1rem, 300);
         }
     }
 
@@ -87,23 +87,23 @@ body {
         @include format-text(1rem, 0.6875rem, 600);
 
         @include tablet {
-            @include format-text(1.125rem, 0.75rem, 400);
+            @include format-text(1.125rem, 0.75rem, 300);
         }
 
         @include desktop {
-            @include format-text(1.125rem, 0.75rem, 400);
+            @include format-text(1.125rem, 0.75rem, 300);
         }
     }
 
     p1 {
-        @include format-text(1.625rem, 0.9375rem, 400);
+        @include format-text(1.625rem, 0.9375rem, 300);
 
         @include tablet {
-            @include format-text(1.75rem, 1rem, 400);
+            @include format-text(1.75rem, 1rem, 300);
         }
 
         @include desktop {
-            @include format-text(1.75rem, 1rem, 400);
+            @include format-text(1.75rem, 1rem, 300);
         }
     }
 
@@ -123,11 +123,11 @@ body {
         @include format-text(1rem, 0.6875rem, 100);
 
         @include tablet {
-            @include format-text(1.125rem, 0.75rem, 100);
+            @include format-text(1.125rem, 0.75rem, 200);
         }
 
         @include desktop {
-            @include format-text(1.125rem, 0.75rem, 100);
+            @include format-text(1.125rem, 0.75rem, 200);
         }
     }
 
@@ -156,7 +156,7 @@ body {
         text-transform: capitalize;
         padding: 0;
         margin: 0;
-        @include font-styling(400, $White);
+        @include font-styling(300, $White);
 
         @include format-text(1.25rem, 0.8125rem, 600);
         height: 2.5rem;
@@ -185,7 +185,7 @@ body {
     input,
     textarea,
     select {
-        @include font-styling(400, $Black);
+        @include font-styling(300, $Black);
         background-color: $White;
         border: 0.0625rem solid $Cloud;
         border-radius: 1.25rem;
@@ -206,17 +206,17 @@ body {
         }
 
         &::placeholder {
-            @include font-styling(400, $Slate);
+            @include font-styling(300, $Slate);
             padding: 0;
 
-            @include format-text(1rem, 0.8125rem, 400);
+            @include format-text(1rem, 0.8125rem, 300);
 
             @include tablet {
-                @include format-text(1rem, 0.875rem, 400);
+                @include format-text(1rem, 0.875rem, 300);
             }
 
             @include desktop {
-                @include format-text(1rem, 0.875rem, 400);
+                @include format-text(1rem, 0.875rem, 300);
             }
         }
 

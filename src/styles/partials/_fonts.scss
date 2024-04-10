@@ -1,48 +1,55 @@
 @font-face {
-    font-family: "ProximaNova";
-    src: local("Proxima Nova Thin");
-    src: url(../../assets/fonts/ProximaNovaT-Thin.ttf) format("opentype");
-    font-weight: 100;
-};
-
-@font-face {
-    font-family: "ProximaNova";
-    src: local("Proxima Nova Light");
-    src: url(../../assets/fonts/ProximaNova-Light.ttf) format("opentype");
+    font-family: "Rubik";
+    src: local("Rubik Light");
+    src: url(../../assets/fonts/Rubik-Light.ttf) format("opentype");
     font-weight: 200;
 };
 
 @font-face {
-    font-family: "ProximaNova";
-    src: local("Proxima Nova Regular");
-    src: url(../../assets/fonts/ProximaNova-Regular.ttf) format("opentype");
+    font-family: "Rubik";
+    src: local("Rubik Regular");
+    src: url(../../assets/fonts/Rubik-Regular.ttf) format("opentype");
+    font-weight: 300;
+};
+
+@font-face {
+    font-family: "Rubik";
+    src: local("Rubik Mono");
+    src: url(../../assets/fonts/RubikMonoOne-Regular.ttf) format("opentype");
     font-weight: 400;
 };
 
 @font-face {
-    font-family: "ProximaNova";
-    src: local("Proxima Nova SemiBold");
-    src: url(../../assets/fonts/ProximaNova-Semibold.ttf) format("opentype");
+    font-family: "Rubik";
+    src: local("Rubik Medium");
+    src: url(../../assets/fonts/Rubik-Medium.ttf) format("opentype");
+    font-weight: 500;
+};
+
+@font-face {
+    font-family: "Rubik";
+    src: local("Rubik SemiBold");
+    src: url(../../assets/fonts/Rubik-SemiBold.ttf) format("opentype");
     font-weight: 600;
 };
 
 @font-face {
-    font-family: "ProximaNova";
-    src: local("Proxima Nova Bold");
-    src: url(../../assets/fonts/ProximaNova-Bold.ttf) format("opentype");
+    font-family: "Rubik";
+    src: local("Rubik Bold");
+    src: url(../../assets/fonts/Rubik-Bold.ttf) format("opentype");
     font-weight: 700;
 };
 
 @font-face {
-    font-family: "ProximaNova";
-    src: local("Proxima Nova ExtraBold");
-    src: url(../../assets/fonts/ProximaNova-Extrabld.ttf) format("opentype");
+    font-family: "Rubik";
+    src: local("Rubik ExtraBold");
+    src: url(../../assets/fonts/Rubik-ExtraBold.ttf) format("opentype");
     font-weight: 800;
 };
 
 @font-face {
-    font-family: "ProximaNova";
-    src: local("Proxima Nova Black");
-    src: url(../../assets/fonts/ProximaNova-Black.ttf) format("opentype");
+    font-family: "Rubik";
+    src: local("Rubik Black");
+    src: url(../../assets/fonts/Rubik-Black.ttf) format("opentype");
     font-weight: 900;
 };
