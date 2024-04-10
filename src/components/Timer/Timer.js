@@ -42,7 +42,8 @@ export default function Timer() {
         <section className="timer">
             <div className="timer__container">
                 <p className="timer__time">
-                    {hours}:{minutes.toString().padStart(2, "0")}:
+                    {hours.toString()}:
+                    {minutes.toString().padStart(2, "0")}:
                     {seconds.toString().padStart(2, "0")}:
                     {milliseconds.toString().padStart(2, "0")}
                 </p>
