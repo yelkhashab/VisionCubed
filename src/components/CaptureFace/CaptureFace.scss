@@ -3,5 +3,16 @@
 @import '../../styles/partials/mixins';
 
 .capture {
-
+    position: relative;
+    &__grid {
+        position: relative;
+        height: fit-content;
+        &-black {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            z-index: 2;
+            height: 80%;
+        }
+    }
 }
