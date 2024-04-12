@@ -80,9 +80,9 @@ export default function CaptureFace() {
   }, [cubeState]);
 
   const capture = useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    // const trimmedSrc = imageSrc.replace("data:image/jpeg;base64,", "");
-    setImgSrc(imageSrc);
+    const imageSrc = webcamRef.current.getScreenshot({width: 240, height: 180});
+    const trimmedSrc = imageSrc.replace("data:image/jpeg;base64,", "");
+    setImgSrc(trimmedSrc);
   }, [webcamRef, setImgSrc]);
 
   return (
@@ -94,6 +94,8 @@ export default function CaptureFace() {
             audio={false}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
+            height={360}
+            width={480}
           />
         </div>
         <button onClick={capture}>Capture photo</button>
