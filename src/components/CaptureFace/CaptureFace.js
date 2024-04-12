@@ -21,31 +21,6 @@ export default function CaptureFace() {
     setImgSrc(null);
   }, [setFaceState, setFaceImages, setCubeState, setImgSrc]);
 
-  
-  // useEffect(() => {
-  //   const getFaceState = async () => {
-  //     if (!imgSrc) return;
-  //     const face = {
-  //       image: imgSrc
-  //     }
-  //     // console.log("Face: ", face);
-  //     try {
-  //       const response = await axios.post('http://localhost:8080/api/scan', face)
-  //       const [faceID, faceArray] = Object.entries(response.data)[0];
-  //       setFaceState(response.data);
-  //       if (!(faceID in cubeState) && !faceArray.includes("unknown")) {
-  //         setCubeState(prevCubeState => ({ ...prevCubeState, [faceID]: faceArray }));
-  //       } else {
-  //         console.log("face already exists");
-  //         console.log("Cube: ", cubeState);
-  //       }
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-  //   getFaceState();
-  // }, [imgSrc])
-
   useEffect(() => {
     if (!imgSrc) return;
     const nextFaceIndex = Object.keys(faceImages).length;
