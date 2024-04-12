@@ -4,7 +4,7 @@ import Webcam from 'react-webcam'
 import axios from 'axios';
 import gridBlack from '../../assets/grids/grid_black.png';
 
-export default function CaptureFace() {
+export default function CaptureFace({onCubeStateUpdate}) {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
   const [faceState, setFaceState] = useState({});
@@ -43,16 +43,11 @@ export default function CaptureFace() {
   }, [faceImages])
 
   useEffect(() => {
-    console.log("Face: ", faceState);
-  }, [faceState]);
-
-  useEffect(() => {
-    console.log("Face Images: ", faceImages);
-  }, [faceImages]);
-
-  useEffect(() => {
-    console.log("Cube: ", cubeState);
-  }, [cubeState]);
+    if (Object.keys(cubeState).length === 6) {
+      onCubeStateUpdate(cubeState);
+    }
+    console.log("Cube State: ", cubeState);
+  }, [cubeState, onCubeStateUpdate]);
 
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot({width: 240, height: 180});
