@@ -3,6 +3,12 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import Webcam from 'react-webcam'
 import axios from 'axios';
 import gridBlack from '../../assets/grids/grid_black.png';
+import gridRed from '../../assets/grids/grid_R.png';
+import gridOrange from '../../assets/grids/grid_O.png';
+import gridYellow from '../../assets/grids/grid_Y.png';
+import gridGreen from '../../assets/grids/grid_G.png';
+import gridBlue from '../../assets/grids/grid_B.png';
+import gridWhite from '../../assets/grids/grid_W.png';
 
 export default function CaptureFace({onCubeStateUpdate}) {
   const webcamRef = useRef(null);
@@ -11,8 +17,8 @@ export default function CaptureFace({onCubeStateUpdate}) {
   const [faceImages, setFaceImages] = useState({});
   const [cubeState, setCubeState] = useState({});
 
-  const face_order = ['F', 'R', 'B', 'L', 'U', 'D']
-  const color_order = ['R', 'B', 'O', 'G', 'W', 'Y']
+  const faceOrder = ['F', 'R', 'B', 'L', 'U', 'D']
+  const colorOrder = ['R', 'B', 'O', 'G', 'W', 'Y']
 
   const clearState = useCallback(() => {
     setFaceState({});
@@ -24,7 +30,7 @@ export default function CaptureFace({onCubeStateUpdate}) {
   useEffect(() => {
     if (!imgSrc) return;
     const nextFaceIndex = Object.keys(faceImages).length;
-    const nextFaceID = face_order[nextFaceIndex];
+    const nextFaceID = faceOrder[nextFaceIndex];
     setFaceImages(prevFaceImages => ({ ...prevFaceImages, [nextFaceID]: imgSrc }));
   }, [imgSrc])
 
@@ -36,6 +42,7 @@ export default function CaptureFace({onCubeStateUpdate}) {
           setCubeState(response.data);
         } catch (error) {
           console.error(error)
+          clearState();
         }
       }
     }
@@ -55,12 +62,27 @@ export default function CaptureFace({onCubeStateUpdate}) {
     setImgSrc(trimmedSrc);
   }, [webcamRef, setImgSrc]);
 
+  const currentStep = Object.keys(faceImages).length;
+  const gridColor = colorOrder[currentStep];
+
+  const gridImages = {
+    R: gridRed,
+    O: gridOrange,
+    Y: gridYellow,
+    G: gridGreen,
+    B: gridBlue,
+    W: gridWhite,
+  };
+  
+  
   return (
     <>
       <section className="capture">
         <div className="capture__grid">
-          <img className="capture__grid-black" src={gridBlack} alt="grid" />
+          {/* <img className="capture__grid-black" src={gridBlack} alt="grid" /> */}
+          <img className="capture__grid-color" src={gridImages[gridColor]} alt="grid" />
           <Webcam
+            className="capture__webcam"
             audio={false}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
