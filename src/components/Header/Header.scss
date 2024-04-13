@@ -10,6 +10,8 @@
     justify-content: space-between;
     align-items: center;
 
+    background-color: $White;
+
     @include tablet {
         padding: 0 2rem;
     }
@@ -23,9 +25,15 @@
         @include font-styling(900, $Black);
         text-decoration: none;
 
+        $colors: (
+            $Red,
+            $Blue,
+            $Green
+        ); // Define an array of color options
+
         &:hover {
             transition: all .3s ease-in-out;
-            text-shadow: 3px 3px 0 $Red;
+            text-shadow: 3px 3px 0 var(--text-shadow-color);
         }
     }
 
@@ -52,9 +60,9 @@
 
     &__link {
         &.active {
-            
+
             text-decoration: 2px underline;
-            
+
         }
     }
 

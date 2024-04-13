@@ -2,6 +2,15 @@ import './Header.scss';
 import { NavLink } from 'react-router-dom';
 
 export default function Header() {
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.header__logo').addEventListener('mouseover', function() {
+            var colors = ['red', 'blue', 'green', 'orange', 'gold' ];
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            this.style.setProperty('--text-shadow-color', randomColor);
+          });
+    });
+
     return (
         <>
             <section className="header">
