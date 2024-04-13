@@ -18,7 +18,7 @@ export default function CaptureFace({ onCubeStateUpdate }) {
   const [cubeState, setCubeState] = useState({});
 
   const faceOrder = ['F', 'R', 'B', 'L', 'U', 'D']
-  const colorOrder = ['R', 'B', 'O', 'G', 'W', 'Y']
+  const colorOrder = ['G', 'R', 'B', 'O', 'W', 'Y']
 
   const clearState = useCallback(() => {
     setFaceState({});
