@@ -1,3 +1,51 @@
 @use '../../styles/partials/global';
 @import '../../styles/partials/variables';
 @import '../../styles/partials/mixins';
+
+.solve {
+    @include tablet {
+        padding: 0 2rem;
+    }
+
+    @include desktop {
+        padding: 0 10vw;
+    }
+
+    &__button {
+        width: 20rem;
+        height: 3rem;
+        margin: 1.5rem 0;
+        font-size: 1.25rem;
+    }
+
+    &__solution {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        border-radius: 0.5rem;
+        background-color: $Cloud;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        font-size: 1.5rem;
+
+        max-width: 480px;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            
+        }
+
+        li {
+            @include font-styling(600, $Black);
+            font-size: 1.25rem;
+        }
+
+        &-heading {
+            padding-bottom: 1rem;
+        }
+    }
+
+}
