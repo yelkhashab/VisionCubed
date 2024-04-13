@@ -10,7 +10,7 @@ import gridGreen from '../../assets/grids/grid_G.png';
 import gridBlue from '../../assets/grids/grid_B.png';
 import gridWhite from '../../assets/grids/grid_W.png';
 
-export default function CaptureFace({onCubeStateUpdate}) {
+export default function CaptureFace({ onCubeStateUpdate }) {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
   const [faceState, setFaceState] = useState({});
@@ -57,7 +57,7 @@ export default function CaptureFace({onCubeStateUpdate}) {
   }, [cubeState, onCubeStateUpdate]);
 
   const capture = useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot({width: 240, height: 180});
+    const imageSrc = webcamRef.current.getScreenshot({ width: 240, height: 180 });
     const trimmedSrc = imageSrc.replace("data:image/jpeg;base64,", "");
     setImgSrc(trimmedSrc);
   }, [webcamRef, setImgSrc]);
@@ -73,8 +73,8 @@ export default function CaptureFace({onCubeStateUpdate}) {
     B: gridBlue,
     W: gridWhite,
   };
-  
-  
+
+
   return (
     <>
       <section className="capture">
@@ -90,8 +90,10 @@ export default function CaptureFace({onCubeStateUpdate}) {
             width={480}
           />
         </div>
-        <button onClick={capture}>Capture photo</button>
-        <button onClick={clearState}>Clear</button>
+        <div className="capture__buttons">
+          <button onClick={capture}>Capture photo</button>
+          <button onClick={clearState}>Clear</button>
+        </div>
       </section>
     </>
   );
