@@ -14,18 +14,7 @@ body {
 
     a {
         text-decoration: none;
-
-        @include tablet {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-
-        @include desktop {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+        color: $Black;
     }
 
     ul {
@@ -149,10 +138,10 @@ body {
     }
 
     button {
-        background-color: $Blue;
+        background-color: $Black;
         display: block;
         border: none;
-        border-radius: 1.25rem;
+        border-radius: 0.5rem;
         text-transform: capitalize;
         padding: 0;
         margin: 0;
