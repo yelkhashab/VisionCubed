@@ -47,9 +47,21 @@ export default function Solve() {
 
     useEffect(() => {
         if (inverseSolution.length > 0) {
-            setMyScramble(inverseSolution.slice(stepIndex).join(' '));
+            const step = inverseSolution.length - stepIndex;
+            setMyScramble(inverseSolution.slice(0, step).join(' '));
         }
     }, [stepIndex, inverseSolution]);
+
+    useEffect(() => {
+        if (isCapture) {
+            setIsSolve(false);
+            setSolution([]);
+            setInverseSolution([]);
+            setNet([]);
+            setStepIndex(0);
+            setMyScramble("");
+        }
+    }, [isCapture])
 
     const handleNext = () => {
         if (stepIndex < solution.length) {
