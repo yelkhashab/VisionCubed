@@ -1,11 +1,11 @@
 import './Solve.scss'
+import { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
+import axios from 'axios'
+
 import Header from '../../components/Header/Header'
 import CaptureFace from '../../components/CaptureFace/CaptureFace'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { Helmet } from 'react-helmet'
-import RoofpigCube from '../../components/RoofpigCube/RoofpigCube.js'
-
+import RoofpigCube from '../../components/RoofpigCube/RoofpigCube'
 import RubiksCube from '../../components/RubiksCube/RubiksCube.tsx'
 
 export default function Solve() {
@@ -117,10 +117,6 @@ export default function Solve() {
                     </div>
                 </div>
             </div>
-            <Helmet>
-                <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                <script src="roofpig_and_three.min.js"></script>
-            </Helmet>
         </>
     )
 }
