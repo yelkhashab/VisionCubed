@@ -12,8 +12,6 @@ export default function Practice() {
         setScramble(response.data['scramble'])
     }
 
-
-
     return (
         <>
             <section className="practice">
