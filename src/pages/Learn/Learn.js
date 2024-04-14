@@ -7,7 +7,7 @@ export default function Learn() {
         <>
             <section className='learn'>
                 <Header />
-                <RoofpigCube />
+                <RoofpigCube state="solve" moves="R U  R' U R U2 R' U"/>
             </section>
         </>
     )
