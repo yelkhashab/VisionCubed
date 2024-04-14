@@ -7,7 +7,6 @@
         display: inline-block;
         margin-bottom: 2rem;
         padding: 10px;
-        border: 1px solid;
         text-align: center;
         background: #eee
         
@@ -22,12 +21,13 @@
 
         .roofpig {
             margin-top: 0;
-            padding: 10px 0
+            padding: 10px 0;
+            border: 0 !important;
         }
 
         .roofpig canvas {
-            width: 150px!important;
-            height: 150px!important
+            width: 300px!important;
+            height: 300px!important
         }
 
         a {
