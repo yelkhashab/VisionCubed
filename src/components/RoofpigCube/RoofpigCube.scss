@@ -3,61 +3,67 @@
 @import '../../styles/partials/mixins';
 
 .roofpig-cube {
-    &__moves {
-        display: inline-block;
-        margin-bottom: 2rem;
-        padding: 10px;
-        text-align: center;
-        background: #eee
-        
-        img {
-            display: block;
-            margin: 0 auto 10px
-        }
 
-        div {
-            margin-top: 15px
-        }
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 10px;
+    text-align: center;
+    background: $White;
+    border-radius: 0.5rem;
+    // max-height: 395px;
 
-        .roofpig {
-            margin-top: 0;
-            padding: 10px 0;
-            border: 0 !important;
-        }
+    img {
+        display: block;
+        margin: 0 auto 10px
+    }
 
-        .roofpig canvas {
-            width: 300px!important;
-            height: 300px!important
-        }
+    div {
+        margin-top: 15px
+    }
 
-        a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            margin-right: 7px;
-            border: 1px solid;
-            color: inherit;
-            line-height: 40px;
-            text-align: center;
-            background: #fff;
+    .roofpig {
+        margin-top: 0;
+        padding: 10px 0;
+        border: 0 !important;
 
-            @include tablet{
-                margin-right:12px
-            }
+        &:first-child {
 
-            &:hover {
-                border-color:#3d91b0;
-                color: #3d91b0
-            }
-
-            &:last-of-type {
-                margin: 0
-            }
-        }
-
-        button {
-            margin: 15px 0 0
         }
     }
-}
 
+    .roofpig canvas {
+        display: inline-block;
+        width: 300px !important;
+        height: 300px !important
+    }
+
+    a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin-right: 7px;
+        border: 1px solid;
+        color: inherit;
+        line-height: 40px;
+        text-align: center;
+        background: #fff;
+
+        @include tablet {
+            margin-right: 12px
+        }
+
+        &:hover {
+            border-color: #3d91b0;
+            color: #3d91b0
+        }
+
+        &:last-of-type {
+            margin: 0
+        }
+    }
+
+    button {
+        margin: 15px 0 0
+    }
+
+}
