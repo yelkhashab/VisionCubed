@@ -1,15 +1,26 @@
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function Header() {
 
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('.header__logo').addEventListener('mouseover', function() {
-            var colors = ['red', 'blue', 'green', 'orange', 'gold' ];
-            var randomColor = colors[Math.floor(Math.random() * colors.length)];
-            this.style.setProperty('--text-shadow-color', randomColor);
-          });
-    });
+    useEffect(() => {
+        const colors = ['red', 'blue', 'green', 'orange', 'lightgrey', 'gold'];
+        let currentIndex = 0;
+
+        const logoElement = document.querySelector('.header__logo');
+        const changeColor = () => {
+            const currentColor = colors[currentIndex];
+            logoElement.style.setProperty('--text-shadow-color', currentColor);
+            currentIndex = (currentIndex + 1) % colors.length;
+        };
+
+        logoElement.addEventListener('mouseover', changeColor);
+
+        return () => {
+            logoElement.removeEventListener('mouseover', changeColor);
+        };
+    }, []);
 
     return (
         <>
