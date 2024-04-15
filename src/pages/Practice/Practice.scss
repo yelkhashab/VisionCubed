@@ -1,0 +1,97 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.practice {
+    
+    // max-height: 100vh;
+    height: 100vh;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        height: 90vh;
+    
+        @include tablet {
+            padding: 3rem 2rem 0 2rem;
+        }
+    
+        @include desktop {
+            padding: 3rem 10vw 0 10vw;
+        }
+    }
+
+    &__top {
+        height: fit-content;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include desktop {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+    }
+
+    &__title {
+        @include desktop {
+            width: 100%;
+        }
+    }
+
+    &__scramble {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        border-radius: 0.5rem;
+        background-color: $White;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        font-size: 1.5rem;
+
+        max-width: 100%;
+        width: fit-content;
+
+        @include desktop {
+            width: 100%;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            
+        }
+
+        li {
+            @include font-styling(600, $Black);
+            font-size: 1.25rem;
+
+            &.current {
+                font-size: 1.5rem;
+                color: $Blue;
+            }
+        }
+
+        &-heading {
+            padding-bottom: 1rem;
+        }
+    }
+
+    &__timer {
+        height: 100%;
+    }
+
+    &__button {
+        width: 20rem;
+        height: 3rem;
+        margin: 1.5rem 0;
+        font-size: 1.25rem;
+    }
+
+}

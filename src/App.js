@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
-function App() {
+import Landing from './pages/Landing/Landing';
+import Practice from './pages/Practice/Practice';
+import Solve from './pages/Solve/Solve';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/solve" element={<Solve />} />
+          <Route path="/practice" element={<Practice />} />
+        </Routes>
+      </BrowserRouter>
+      <Helmet>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="roofpig_and_three.min.js"></script>
+      </Helmet>
+    </>
+  )
 }
-
-export default App;

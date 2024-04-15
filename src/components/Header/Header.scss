@@ -1,0 +1,63 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.header {
+    height: 10vh;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: $White;
+
+    @include tablet {
+        padding: 0 2rem;
+    }
+
+    @include desktop {
+        padding: 0 10vw;
+    }
+
+    &__logo {
+        font-size: 4rem;
+        @include font-styling(900, $Black);
+        text-decoration: none;
+
+        &:hover {
+            transition: all .3s ease-in-out;
+            text-shadow: 3px 3px 0 var(--text-shadow-color);
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    &__item {
+        @include font-styling(600, $Black);
+
+        &:hover {
+            transition: all .3s ease-in-out;
+            text-decoration: 2px underline;
+        }
+    }
+
+    &__link {
+        &.active {
+
+            text-decoration: 2px underline;
+
+        }
+    }
+
+}
