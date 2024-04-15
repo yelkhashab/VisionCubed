@@ -34,9 +34,6 @@ export default function Header() {
                             <NavLink to="/solve" className="header__link">Solve</NavLink>
                         </li>
                         <li className="header__item">
-                            <NavLink to="/learn" className="header__link">Learn</NavLink>
-                        </li>
-                        <li className="header__item">
                             <NavLink to="/practice" className="header__link">Practice</NavLink>
                         </li>
                     </ul>
