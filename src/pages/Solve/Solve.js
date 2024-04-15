@@ -10,47 +10,54 @@ import RoofpigCube from '../../components/RoofpigCube/RoofpigCube'
 import RubiksNet from '../../components/RubiksNet/RubiksNet.tsx'
 
 export default function Solve() {
-    const [isCapture, setIsCapture] = useState(JSON.parse(localStorage.getItem('isCapture')) || false);
-    const [isSolve, setIsSolve] = useState(JSON.parse(localStorage.getItem('isSolve')) || false);
-    const [cubeState, setCubeState] = useState(JSON.parse(localStorage.getItem('cubeState')) || []);
-    const [solution, setSolution] = useState(JSON.parse(localStorage.getItem('solution')) || []);
-    const [inverseSolution, setInverseSolution] = useState(JSON.parse(localStorage.getItem('inverseSolution')) || "");
-    const [myScramble, setMyScramble] = useState(JSON.parse(localStorage.getItem('myScramble')) || "");
-    const [net, setNet] = useState(JSON.parse(localStorage.getItem('net')) || []);
-    const [stepIndex, setStepIndex] = useState(JSON.parse(localStorage.getItem('stepIndex')) || 0);
-    const [faceIndex, setFaceIndex] = useState(JSON.parse(localStorage.getItem('faceIndex')) || 0);
-    const [buttonsArray, setButtonsArray] = useState(JSON.parse(localStorage.getItem('buttonsArray')) || []);
-    const [key, setKey] = useState(JSON.parse(localStorage.getItem('key')) || 0);
+    const [isCapture, setIsCapture] = useState(JSON.parse(sessionStorage.getItem('isCapture')) || false);
+    const [isSolve, setIsSolve] = useState(JSON.parse(sessionStorage.getItem('isSolve')) || false);
+    const [cubeState, setCubeState] = useState(JSON.parse(sessionStorage.getItem('cubeState')) || []);
+    const [solution, setSolution] = useState(JSON.parse(sessionStorage.getItem('solution')) || []);
+    const [inverseSolution, setInverseSolution] = useState(JSON.parse(sessionStorage.getItem('inverseSolution')) || "");
+    const [myScramble, setMyScramble] = useState(JSON.parse(sessionStorage.getItem('myScramble')) || "");
+    const [net, setNet] = useState(JSON.parse(sessionStorage.getItem('net')) || []);
+    const [stepIndex, setStepIndex] = useState(JSON.parse(sessionStorage.getItem('stepIndex')) || 0);
+    const [faceIndex, setFaceIndex] = useState(JSON.parse(sessionStorage.getItem('faceIndex')) || 0);
+    const [buttonsArray, setButtonsArray] = useState(JSON.parse(sessionStorage.getItem('buttonsArray')) || []);
+    const [key, setKey] = useState(JSON.parse(sessionStorage.getItem('key')) || 0);
     const [roofpigKey, setRoofpigKey] = useState(0);
     const [reload, setReload] = useState(false);
 
+
     useEffect(() => {
-        localStorage.setItem('isCapture', JSON.stringify(isCapture));
-        localStorage.setItem('isSolve', JSON.stringify(isSolve));
-        localStorage.setItem('cubeState', JSON.stringify(cubeState));
-        localStorage.setItem('solution', JSON.stringify(solution));
-        localStorage.setItem('inverseSolution', JSON.stringify(inverseSolution));
-        localStorage.setItem('myScramble', JSON.stringify(myScramble));
-        localStorage.setItem('net', JSON.stringify(net));
-        localStorage.setItem('stepIndex', JSON.stringify(stepIndex));
-        localStorage.setItem('faceIndex', JSON.stringify(faceIndex));
-        localStorage.setItem('buttonsArray', JSON.stringify(buttonsArray));
+        sessionStorage.setItem('isCapture', JSON.stringify(isCapture));
+        sessionStorage.setItem('isSolve', JSON.stringify(isSolve));
+        sessionStorage.setItem('cubeState', JSON.stringify(cubeState));
+        sessionStorage.setItem('solution', JSON.stringify(solution));
+        sessionStorage.setItem('inverseSolution', JSON.stringify(inverseSolution));
+        sessionStorage.setItem('myScramble', JSON.stringify(myScramble));
+        sessionStorage.setItem('net', JSON.stringify(net));
+        sessionStorage.setItem('stepIndex', JSON.stringify(stepIndex));
+        sessionStorage.setItem('faceIndex', JSON.stringify(faceIndex));
+        sessionStorage.setItem('buttonsArray', JSON.stringify(buttonsArray));
     }, [isCapture, isSolve, cubeState, solution, inverseSolution, myScramble, net, stepIndex, faceIndex, buttonsArray]);
 
     useEffect(() => {
-        const storedIsCapture = JSON.parse(localStorage.getItem('isCapture'));
-        const storedIsSolve = JSON.parse(localStorage.getItem('isSolve'));
-      
+        const storedIsCapture = JSON.parse(sessionStorage.getItem('isCapture'));
+        const storedIsSolve = JSON.parse(sessionStorage.getItem('isSolve'));
+
         if (!storedIsCapture && isCapture) {
-          setTimeout(() => {
-            window.location.reload();
-          }, 100);
+            setIsSolve(false);
+            setSolution([]);
+            setReload(false);
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
         } else if (!storedIsSolve && isSolve) {
-          setTimeout(() => {
-            window.location.reload();
-          }, 100);
+            setIsCapture(false);
+            setReload(false);
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
         }
-      }, [isCapture, isSolve]);
+        setReload(true);
+    }, [isCapture, isSolve]);
 
     const handleCubeStateChange = (newCubeState) => {
         setCubeState(newCubeState);
@@ -70,25 +77,19 @@ export default function Solve() {
             const getSolution = async () => {
                 try {
                     const response = await axios.post('http://localhost:8080/api/solve', cubeState)
-                    console.log(response.data);
                     setSolution(response.data['solution'].split(' '));
                     setInverseSolution(response.data['inverse'].split(' '));
                     setNet(response.data['net']);
                     setIsCapture(false);
                     setIsSolve(true);
                 } catch (error) {
-                    console.log(error);
+                    console.error(error);
                     setIsCapture(false);
                 }
             }
             getSolution();
         }
     }, [cubeState])
-
-    useEffect(() => {
-        console.log(solution);
-        console.log(inverseSolution);
-    }, [solution])
 
     useEffect(() => {
         if (inverseSolution.length > 0) {
@@ -109,26 +110,16 @@ export default function Solve() {
     }, [isCapture])
 
     useEffect(() => {
-        const button = buttonsArray?.find(button => button.id === 'next-2');
-        if (button) {
-            button.click();
-            if (faceIndex === 5) {
-                button.click();
-            }
+        if (reload) {
+            setTimeout(() => {
+                const button = buttonsArray?.find(button => button.id === 'next-2');
+                for (let i = 0; i < solution.length; i++) {
+                    button?.click();
+                }
+            }, 200)
+            setReload(false);
         }
-    }, [faceIndex])
-
-    // useEffect(() => {
-    //     // window.location.reload();
-    //     if (isSolve){
-    //         setTimeout(() => {
-    //             setReleoad(!releoad);
-    //             refreshPageWithData();
-    //         }, 200);
-    //     }
-
-    // }, [isSolve])
-
+    }, [isSolve])
 
     const handleNext = () => {
         const button = buttonsArray?.find(button => button.id === 'next-2');
@@ -137,9 +128,6 @@ export default function Solve() {
             if (button) {
                 button.click();
             }
-        }
-        if (isCapture) {
-
         }
     };
 
@@ -170,7 +158,7 @@ export default function Solve() {
                     </div>
                     {isCapture && (
                         <div className="solve__capture">
-                            <h3>Please align your cube with the grid</h3>
+                            <h3>Please align your cube with the grid and scan the faces corrsponding to the center grid color</h3>
                             <CaptureFace onCubeStateUpdate={handleCubeStateChange} />
                         </div>
                     )}

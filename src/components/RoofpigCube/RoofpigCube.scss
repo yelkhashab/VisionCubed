@@ -10,7 +10,6 @@
     text-align: center;
     background: $White;
     border-radius: 0.5rem;
-    // max-height: 395px;
 
     img {
         display: block;
@@ -25,10 +24,6 @@
         margin-top: 0;
         padding: 10px 0;
         border: 0 !important;
-
-        &:first-child {
-
-        }
     }
 
     .roofpig canvas {

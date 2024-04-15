@@ -57,7 +57,6 @@ export default function CaptureFace({ onCubeStateUpdate, onFaceCaptured }) {
     if (Object.keys(cubeState).length === 6) {
       onCubeStateUpdate(cubeState);
     }
-    console.log("Cube State: ", cubeState);
   }, [cubeState, onCubeStateUpdate]);
 
   const capture = useCallback(() => {
