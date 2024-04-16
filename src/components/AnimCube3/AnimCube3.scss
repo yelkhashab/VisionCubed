@@ -1,0 +1,18 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.AnimCube3 {
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 400px;
+
+        margin-top: 1rem;
+    }
+}
+
+canvas {
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+}
