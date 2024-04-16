@@ -10,7 +10,7 @@ import gridGreen from '../../assets/grids/grid_G.png';
 import gridBlue from '../../assets/grids/grid_B.png';
 import gridWhite from '../../assets/grids/grid_W.png';
 
-export default function CaptureFace({ onCubeStateUpdate, onFaceCaptured }) {
+export default function CaptureFace({ onCubeStateUpdate, onFaceCaptured, onCapturePhoto }) {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
   const [faceState, setFaceState] = useState({});
@@ -63,7 +63,8 @@ export default function CaptureFace({ onCubeStateUpdate, onFaceCaptured }) {
     const imageSrc = webcamRef.current.getScreenshot({ width: 240, height: 180 });
     const trimmedSrc = imageSrc.replace("data:image/jpeg;base64,", "");
     setImgSrc(trimmedSrc);
-  }, [webcamRef, setImgSrc]);
+    onCapturePhoto(); 
+  }, [webcamRef, setImgSrc, onCapturePhoto]);
 
   const currentStep = Object.keys(faceImages).length;
   const gridColor = colorOrder[currentStep];
