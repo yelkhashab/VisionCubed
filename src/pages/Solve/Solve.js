@@ -16,40 +16,6 @@ export default function Solve() {
     const [faceIndex, setFaceIndex] = useState(JSON.parse(sessionStorage.getItem('faceIndex')) || 0);
     const buttonFuncRef = useRef(null);
 
-    // useEffect(() => {
-    //     sessionStorage.setItem('isCapture', JSON.stringify(isCapture));
-    //     sessionStorage.setItem('isSolve', JSON.stringify(isSolve));
-    //     sessionStorage.setItem('cubeState', JSON.stringify(cubeState));
-    //     sessionStorage.setItem('solution', JSON.stringify(solution));
-    //     sessionStorage.setItem('inverseSolution', JSON.stringify(inverseSolution));
-    //     sessionStorage.setItem('myScramble', JSON.stringify(myScramble));
-    //     sessionStorage.setItem('net', JSON.stringify(net));
-    //     sessionStorage.setItem('stepIndex', JSON.stringify(stepIndex));
-    //     sessionStorage.setItem('faceIndex', JSON.stringify(faceIndex));
-    //     sessionStorage.setItem('buttonsArray', JSON.stringify(buttonsArray));
-    // }, [isCapture, isSolve, cubeState, solution, inverseSolution, myScramble, net, stepIndex, faceIndex, buttonsArray]);
-
-    // useEffect(() => {
-    //     const storedIsCapture = JSON.parse(sessionStorage.getItem('isCapture'));
-    //     const storedIsSolve = JSON.parse(sessionStorage.getItem('isSolve'));
-
-    //     if (!storedIsCapture && isCapture) {
-    //         setIsSolve(false);
-    //         setSolution([]);
-    //         setReload(false);
-    //         setTimeout(() => {
-    //             window.location.reload();
-    //         }, 100);
-    //     } else if (!storedIsSolve && isSolve) {
-    //         setIsCapture(false);
-    //         setReload(false);
-    //         setTimeout(() => {
-    //             window.location.reload();
-    //         }, 100);
-    //     }
-    //     setReload(true);
-    // }, [isCapture, isSolve]);
-
     const handleCubeStateChange = (newCubeState) => {
         setCubeState(newCubeState);
     }
