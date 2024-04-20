@@ -118,6 +118,7 @@ export default function Solve() {
                         <div style={{ width: "400px", height: "400px" }}>
                             <AnimCube3
                                 params="bgcolor=ffffff&snap=1&buttonbar=0&repeat=0&edit=0&position=0&hint=5&hintborder=1&move=Y Y Y Y X X2&movetext=0&sign=1&counter=0&facelets=****w********y********3********2********1********0****&colors=ff8040ff000000ff000000ff999999aaaa44bb7744994444447744004477"
+                                state = 'scan'
                                 onButtonsLoaded={handleButtonsLoaded}
                                 onStepClick={handleNext}
                                 onBackClick={handlePrev}
@@ -129,6 +130,7 @@ export default function Solve() {
                             <div style={{ width: "400px", height: "400px" }}>
                                 <AnimCube3
                                     params={`bgcolor=ffffff&snap=1&buttonbar=0&repeat=0&edit=0&scale=2&hint=5&hintborder=1&initrevmove=#&move=${solution.join(' ')}&movetext=0&sign=1&counter=0&facelets=wwwwwwwwwyyyyyyyyynnnnnnnnn333333333000000000111111111&colors=ff8040ff000000ff000000ff999999aaaa44bb7744994444447744004477`}
+                                    state = 'solve'
                                     onButtonsLoaded={handleButtonsLoaded}
                                     onStepClick={handleNext}
                                     onBackClick={handlePrev}
