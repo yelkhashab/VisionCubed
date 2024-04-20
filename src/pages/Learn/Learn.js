@@ -24,6 +24,7 @@ export default function Learn() {
                             to solve the cube. By mastering this notation, you can follow algorithms
                             more easily and become a skilled cuber in no time!
                         </p>
+                        <br />
                         <h3>Notation Basics</h3>
                         <p>
                             Rubik's Cube moves are denoted by letters which represent each face of the cube:
@@ -61,6 +62,7 @@ export default function Learn() {
                             </ul>
                         </div>
                         <p>Note: The direction of rotation is relative to the face being rotated.</p>
+                        <br />
                         <h3>Try it Yourself</h3>
                         <p>
                             Use the simulator to practice these moves. Enter a sequence of notations
