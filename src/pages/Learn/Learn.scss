@@ -1,0 +1,56 @@
+@use '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.learn {
+    display: flex;
+    gap: 4rem;
+
+    @include tablet {
+        padding: 0 2rem;
+    }
+
+    @include desktop {
+        padding: 0 10vw;
+    }
+
+    &__left {
+        width: 150%;
+        padding-top: 3rem;
+    }
+
+    &__right {
+        padding-top: 4rem;
+    }
+
+    &__heading {
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    &__list {
+        display: flex;
+        padding: 1rem 0;
+
+        &-left {
+            width: 30%;
+            padding: 0 2rem;
+
+            li {
+                font-weight: 500;
+                padding: 0.5rem 0;
+            }
+        }
+
+        &-right {
+            width: 100%;
+            li {
+                padding: 0.5rem 0;
+            }
+        }
+    }
+}
