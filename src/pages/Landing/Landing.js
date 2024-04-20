@@ -43,6 +43,9 @@ export default function Landing() {
                         <NavLink to='/solve' className='nav__link'>Solve</NavLink>
                     </li>
                     <li className='nav__item'>
+                        <NavLink to='/learn' className='nav__link'>Learn</NavLink>
+                    </li>
+                    <li className='nav__item'>
                         <NavLink to='/practice' className='nav__link'>Practice</NavLink>
                     </li>
                 </ul>
