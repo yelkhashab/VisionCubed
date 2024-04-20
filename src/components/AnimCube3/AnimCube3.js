@@ -1,7 +1,7 @@
 import './AnimCube3.scss'
 import React, { useEffect, useRef } from 'react';
 
-const AnimCube3 = ({ params, onButtonsLoaded, onStepClick, onBackClick }) => {
+export default function AnimCube3({ params, state, onButtonsLoaded, onStepClick, onBackClick }) {
     const containerRef = useRef(null);
     const idRef = useRef('cube-' + Math.random().toString(36).substr(2, 9));
     const scriptRef = useRef(null);
@@ -9,12 +9,14 @@ const AnimCube3 = ({ params, onButtonsLoaded, onStepClick, onBackClick }) => {
     useEffect(() => {
         const container = containerRef.current;
         const script = document.createElement('script');
-        script.innerHTML = `
-      var acjs_button = [];
-      var acjs_put_var = [];
-      var acjs_paint = [];
-      AnimCube3("id=${idRef.current}&${params}");
-    `;
+        script.innerHTML =
+            `
+        var acjs_button = [];
+        var acjs_put_var = [];
+        var acjs_paint = [];
+        AnimCube3("id=${idRef.current}&${params}");
+        `;
+
         container.appendChild(script);
         scriptRef.current = script;
 
@@ -47,13 +49,13 @@ const AnimCube3 = ({ params, onButtonsLoaded, onStepClick, onBackClick }) => {
 
     return (
         <div className='AnimCube3'>
-            <div ref={containerRef} id={idRef.current} className='AnimCube3__canvas' style={{ width: '400px', height: '400px' }} />
-            <div className='AnimCube3__buttons'>
-                <button onClick={() => handleButtonClick(1)}>Previous</button>
-                <button onClick={() => handleButtonClick(5)}>Next</button>
-            </div>
+            <div ref={containerRef} id={idRef.current} className='AnimCube3__canvas' style={{ width: '401px', height: '401px' }} />
+            {state === 'solve' &&
+                <div className='AnimCube3__buttons'>
+                    <button onClick={() => handleButtonClick(1)}>Previous</button>
+                    <button onClick={() => handleButtonClick(5)}>Next</button>
+                </div>
+            }
         </div>
     );
 };
-
-export default AnimCube3;
