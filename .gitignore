@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# api
+api/venv
+*__pycache__
+.flaskenv
+*.pyc
+.DS_Store

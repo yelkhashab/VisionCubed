@@ -1,0 +1,7 @@
+Flask==3.0.2
+Flask-CORS==3.0.10
+requests==2.25.1
+opencv-python
+numpy
+kociemba
+python-dotenv
