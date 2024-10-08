@@ -37,7 +37,7 @@ export default function Solve() {
         if (faceIndex === 3) {
             handleButtonClick(5)
         }
-        console.log(faceIndex);
+        // console.log(faceIndex);
 
     };
 
