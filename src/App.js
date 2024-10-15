@@ -7,11 +7,10 @@ import Solve from './pages/Solve/Solve';
 import Learn from './pages/Learn/Learn';
 import Practice from './pages/Practice/Practice';
 
-
 export default function App() {
   return (
     <>
-      <BrowserRouter basename="/visioncubed">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/solve" element={<Solve />} />
