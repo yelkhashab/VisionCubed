@@ -3,12 +3,13 @@ import Header from '../../components/Header/Header'
 import Timer from '../../components/Timer/Timer'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { API_BASE_URL } from '../../config';
 
 export default function Practice() {
     const [scramble, setScramble] = useState('')
 
     const generateScramble = async () => {
-        const response = await axios.get('http://localhost:8080/api/scramble')
+        const response = await axios.get(`${API_BASE_URL}/api/scramble`)
         setScramble(response.data['scramble'])
     }
 

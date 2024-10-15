@@ -9,6 +9,7 @@ import gridYellow from '../../assets/grids/grid_Y.png';
 import gridGreen from '../../assets/grids/grid_G.png';
 import gridBlue from '../../assets/grids/grid_B.png';
 import gridWhite from '../../assets/grids/grid_W.png';
+import { API_BASE_URL } from '../../config';
 
 export default function CaptureFace({ onCubeStateUpdate, onFaceCaptured, onCapturePhoto }) {
   const webcamRef = useRef(null);
@@ -42,7 +43,7 @@ export default function CaptureFace({ onCubeStateUpdate, onFaceCaptured, onCaptu
     const getCubeState = async () => {
       if (Object.keys(faceImages).length === 6) {
         try {
-          const response = await axios.post('http://localhost:8080/api/scan', faceImages)
+          const response = await axios.post(`${API_BASE_URL}/api/scan`, faceImages)
           setCubeState(response.data);
         } catch (error) {
           console.error(error)

@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header'
 import CaptureFace from '../../components/CaptureFace/CaptureFace'
 import RubiksNet from '../../components/RubiksNet/RubiksNet.tsx'
 import AnimCube3 from '../../components/AnimCube3/AnimCube3.js'
+import { API_BASE_URL } from '../../config';
 
 export default function Solve() {
     const [isCapture, setIsCapture] = useState(JSON.parse(sessionStorage.getItem('isCapture')) || false);
@@ -45,7 +46,7 @@ export default function Solve() {
         if (Object.keys(cubeState).length === 6) {
             const getSolution = async () => {
                 try {
-                    const response = await axios.post('http://localhost:8080/api/solve', cubeState)
+                    const response = await axios.post(`${API_BASE_URL}/api/solve`, cubeState)
                     setSolution(response.data['solution'].split(' '));
                     setIsCapture(false);
                     setIsSolve(true);
