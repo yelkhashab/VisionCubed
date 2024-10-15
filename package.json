@@ -51,5 +51,6 @@
   "engines": {
     "node": "20.x",
     "npm": "10.x"
-  }
+  },
+  "homepage": "/visioncubed"
 }

@@ -11,7 +11,7 @@ import Practice from './pages/Practice/Practice';
 export default function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/visioncubed">
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/solve" element={<Solve />} />
